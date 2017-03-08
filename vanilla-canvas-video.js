@@ -2,7 +2,7 @@
 	
 	'use strict';
 	
-	window.CanvasVideo = function CanvasVideo(element, options) {
+	window.CanvasVideo = function CanvasVideo(options) {
 		var self = this;
 		this._settings = {
 			userOptions: {}
@@ -10,7 +10,7 @@
 		if(typeof options !== 'object') return console.error('CanvasVideo only accepts the options as an object.');
 		this._settings.userOptions = options;
 		this.default_options = {
-			container: ''
+			container: this
 			, filename: ''
 			, autoplay: false
 			, onload: true
@@ -21,7 +21,6 @@
 			, output_id: 'output'
 		};
 		this.options = this.setupOptions(options);
-		this.el = element;
 		this.renderCanvas(this.options);
 	};
 

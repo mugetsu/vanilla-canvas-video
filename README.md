@@ -5,13 +5,27 @@ Vanilla canvas video processing addressing video transparency
 
 ## Basic Usage:
 
-```javascript
-```
 
 ```css
+#the_buffer { display: none; }
 ```
 
 ```html
+<div id="the_container"></div>
+```
+
+```javascript
+(function () {
+  var test = new CanvasVideo({
+    container: 'the_container'
+    , filename: 'FILENAME.mp4'
+    , width: '1200'
+    , height: '1080'
+    , looping: false
+    , buffer_id: 'the_buffer'
+	, output_id: 'the_output'
+  });
+})();
 ```
 
 ## Contributors
