@@ -10,13 +10,15 @@
 		if(typeof options !== 'object') return console.error('CanvasVideo only accepts the options as an object.');
 		this._settings.userOptions = options;
 		this.default_options = {
-			target_element: '',
-			video_file: '',
-			view_width: '300',
-			view_height: '300'
+			container: '',
+			filename: '',
+			autoplay: false,
+			width: '400',
+			height: '400'
 		};
 		this.options = this.setupOptions(options);
 		this.el = element;
+		this.renderCanvas(this.options);
 	};
 
 	var CanvasVideoPrototype = window.CanvasVideo.prototype;
@@ -35,6 +37,13 @@
 			merged_options[attrname] = new_options[attrname];
 		}
 		return merged_options;
-	}
+	};
+
+	CanvasVideoPrototype.renderCanvas = function (options) {
+		var _tpl  = '<canvas width="'+options.width+'" height="'+options.height+'" id="v_buffer"></canvas>';
+			_tpl += '<canvas width="'+options.width+'" height="'+(options.height/2)+'" id="v_output"></canvas>';
+		var _target = document.getElementById(options.container);
+		_target.innerHTML = _tpl;
+	};
 
 })();
