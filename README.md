@@ -5,15 +5,19 @@ Vanilla canvas video processing addressing video transparency
 
 ## Basic Usage:
 
-
-```css
-#the_buffer { display: none; }
-```
+### HTML
 
 ```html
 <div id="the_container"></div>
 ```
 
+### CSS
+
+```css
+#the_buffer { display: none; }
+```
+
+### JS
 ```javascript
 (function () {
   var test = new CanvasVideo({
